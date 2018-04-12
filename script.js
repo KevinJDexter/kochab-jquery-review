@@ -17,10 +17,18 @@ function onReady() {
     console.log($('#nameInput').val());
 
     // events
-    $('#clickableButton').on('click', function () {
-        console.log($('#nameInput').val());
+    $('#addPersonButton').on('click', function () {
+        let newPersonName = $('#nameInput').val();
+        let newButton = '<button class="deleteButton">DELETE</button>';
+        $('#listOfNames').append('<li>' + newPersonName + newButton + '</li>');
     });
 
+    // Delete Button Functionality
+    $('#listOfNames').on('click', '.deleteButton', function () {
+        $(this).parent().remove();
+    });
+
+    // 2nd Click Button (nu purpose yet)
     $('#iWasClickedButton').on('click', function() {
         console.log('I was clicked!');
     });
